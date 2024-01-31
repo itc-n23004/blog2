@@ -10,13 +10,12 @@ import {
 import Image from 'next/image'
 import eyecatch from 'images/about.jpg'
 import Head from 'next/head'
-
+import Meta from 'components/meta'
 const About = () => {
   return (
     <Container>
-      <Head>
-        <title>アバウト</title>
-      </Head>
+      <Meta pageTitle='アバウト' />
+
       <Hero title='About' subtitle='Aboutdevelopment activities' />
 
       <figure>
