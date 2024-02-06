@@ -16,7 +16,7 @@ import {
   TwoColumnSidebar
 } from 'components/two-column'
 
-const Schedule = ({
+const Post = ({
   title,
   publish,
   content,
@@ -65,8 +65,15 @@ const Schedule = ({
   )
 }
 
-const getStaticProps = async () => {
-  const slug = 'micro'
+const getStaticPaths = async () => {
+  return {
+    paths: ['/blog/schedule', '/blog/music', '/blog/micro'],
+    fallback: false
+  }
+}
+
+const getStaticProps = async context => {
+  const slug = context.params.slug
 
   const post = await getPostBySlug(slug)
   const description = extractText(post.content)
@@ -86,5 +93,6 @@ const getStaticProps = async () => {
     }
   }
 }
-export default Schedule
+export default Post
 export { getStaticProps }
+export { getStaticPaths }
