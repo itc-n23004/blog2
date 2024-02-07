@@ -19,7 +19,7 @@ const Home = ({ posts }) => {
 }
 export default Home
 
-export async function getStaticProps () {
+const getStaticProps = async () => {
   const posts = await getAllPosts(4)
 
   for (const post of posts) {
@@ -37,3 +37,4 @@ export async function getStaticProps () {
     }
   }
 }
+export { getStaticProps }
